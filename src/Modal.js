@@ -94,7 +94,10 @@ class Modal extends Component {
   }
 
   showModal(e) {
-    e && e.preventDefault();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
     this.instance && this.instance.open();
   }

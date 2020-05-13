@@ -22,7 +22,8 @@
     "fix": "eslint src test --fix",
     "release": "npm run build && npm publish",
     "prettier": "prettier --write \"{src,test,stories}/**/*.js\"",
-    "prepush": "npm run lint"
+    "prepush": "npm run lint",
+    "prepare": "npm run build"
   },
   "engines": {
     "node": ">=8"

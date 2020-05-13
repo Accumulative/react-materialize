@@ -53,7 +53,8 @@ const Modal = ({
   }, [open]);
 
   const showModal = e => {
-    e && e.preventDefault();
+    e.preventDefault();
+    e.stopPropagation();
 
     _modalInstance.current && _modalInstance.current.open();
   };

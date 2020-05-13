@@ -39,7 +39,9 @@ const Modal = ({
     _modalInstance.current = M.Modal.init(_modalRef.current, options);
 
     return () => {
-      root.removeChild(modalRoot);
+      if (modalRoot.parentNode === root) {
+        root.removeChild(modalRoot);
+      }
       _modalInstance.current.destroy();
     };
   }, [options, root, children]);
@@ -53,8 +55,10 @@ const Modal = ({
   }, [open]);
 
   const showModal = e => {
-    e.preventDefault();
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
 
     _modalInstance.current && _modalInstance.current.open();
   };

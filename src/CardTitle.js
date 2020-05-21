@@ -6,7 +6,7 @@ import constants from './constants';
 
 class CardTitle extends Component {
   render() {
-    let { image, reveal, waves, children, ...props } = this.props;
+    let { image, reveal, waves, children, fab, ...props } = this.props;
     const classes = cx({
       'card-image': true,
       'waves-effect': waves,
@@ -18,6 +18,7 @@ class CardTitle extends Component {
       <div className={cx(classes)} {...props}>
         <img className={cx({ activator: reveal })} src={image} />
         <span className={cx('card-title')}>{children}</span>
+        {fab}
       </div>
     );
   }
